@@ -82,7 +82,7 @@
                        <!-- 카드헤더 드롭다운 -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between" >
                         
-                        <h6 class="m-0 font-weight-bold text-primary" href="test_project_list.html"><a href="test_project_list.html">프로젝트 목록</a></h6>
+                        <h6 class="m-0 font-weight-bold text-primary" href="test_project_list.html"><a href="project_list">프로젝트 목록</a></h6>
                         
                         
                         <div class="dropdown no-arrow">

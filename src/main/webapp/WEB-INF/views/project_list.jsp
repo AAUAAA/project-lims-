@@ -46,7 +46,7 @@
 
    
 
-    <div class="border rounded py-2 " ondrop="drop(event)" ondragover="allowDrop(event)">
+    <div class="border rounded py-2 " >
         <!-- 컨테이너 시작 건드리지마 -->	
         
 
@@ -71,7 +71,7 @@
          </div> 
         </div>
       
-      <div class="container border rounded my-3" >
+      <div class="border rounded my-3" >
       <table class="table table-hover">
       <thead>
         <tr>
