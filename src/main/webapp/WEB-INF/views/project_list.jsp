@@ -11,9 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>pList</title>
-
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/css/location.css">
+    <title>프로젝트 리스트</title>
 
     <!-- Custom fonts for this template-->
     <link href="${pageContext.request.contextPath}/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -26,13 +24,10 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 
-
-	
 </head>
 
 <body>
 <div id="wrapper">
-  
 <!-- 사이드바 자리 -->
 	<%@ include file="include/sidebar.jsp" %>
 	<!-- 사이드바 자리 -->
@@ -43,13 +38,19 @@
 	<!-- topbar 자리 -->
 		<%@ include file="include/topbar.jsp" %>	
 	<!-- topbar 자리 -->
+	
+	<div class="container ">        
+      <h1 class="">프로젝트</h1>
+    </div>
+	
 
-   
-
-    <div class="border rounded py-2 " >
+    <div class="container border rounded py-2">
         <!-- 컨테이너 시작 건드리지마 -->	
         
+        
 
+        
+            
         <div class="row ">
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 ">
             <div class="input-group">
@@ -64,14 +65,14 @@
           </form>     
           
           <div>
-            <button class="btn btn-primary mr-1" type="submit">추가</button>
+            <button class="btn btn-primary mr-1" type="button" onclick="script:window.location='project'">추가</button>
             <button class="btn btn-primary mr-1" type="submit">설정</button>
           </div>
           
          </div> 
         </div>
       
-      <div class="border rounded my-3" >
+      <div class="container border rounded my-3" >
       <table class="table table-hover">
       <thead>
         <tr>
@@ -275,9 +276,10 @@
         
         </tbody>
       </div>    
-        
-        
-        
+                
+            
+            
+         
         
         
         
@@ -295,8 +297,7 @@
 	</div>
     <!--아래여백-->
 
-</div>       
-
+</div> 
 
     
 
@@ -320,7 +321,6 @@
     <script src="${pageContext.request.contextPath}/resources/js/demo/chart-area-demo.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/demo/chart-pie-demo.js"></script>
 
-</div>
 
 </body>
 

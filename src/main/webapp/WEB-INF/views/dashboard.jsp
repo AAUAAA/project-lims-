@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Charts</title>
+    <title>데시보드</title>
 
     <!-- Custom fonts for this template-->
     <link href="${pageContext.request.contextPath}/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -24,7 +24,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" >
+  
 
     <!--드래그앤드롭-->
     <script>
@@ -82,11 +82,12 @@
                        <!-- 카드헤더 드롭다운 -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between" >
                         
-                        <h6 class="m-0 font-weight-bold text-primary" href="test_project_list.html"><a href="project_list">프로젝트 목록</a></h6>
+                        <h6 class="m-0 font-weight-bold text-primary">
+                        <a href="#" onclick="script:window.location='project_list'">프로젝트 목록</a></h6>
                         
                         
                         <div class="dropdown no-arrow">
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="dropdown-toggle" href="#" onclick="script:window.location='project_list'" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
@@ -104,7 +105,7 @@
 
                         <!--과제--> 
                         <div class="card border my-2" role="button" data-bs-toggle="collapse" href="#project_content" aria-expanded="false" aria-controls="project_content" id="">
-                        과제이름 어쩌고 냠냠냠
+                        <p class="ml-2">과제이름 어쩌고 냠냠냠</p>
                         </div>
                         <!--과제-->
 

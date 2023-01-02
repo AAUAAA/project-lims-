@@ -35,20 +35,20 @@
         <!-- 컨테이너 시작 건드리지마 -->	
         
             
-        <form>
+        <form action="loginOk" method="post">
   
     
             <h1 class="h3 my-5 mb-3 fw-normal text-center">연구실 안전관리 시스템</h1>
         
             <div class="form-floating">
-              <input type="email" class="form-control" id="floatingInput" placeholder="이메일(계정)">
+              <input type="email" class="form-control" id="floatingInput" placeholder="이메일(계정)" name="email">
               
             </div>
             
             <br>
             
             <div class="form-floating">
-              <input type="password" class="form-control" id="floatingPassword" placeholder="비밀번호">      
+              <input type="password" class="form-control" id="floatingPassword" placeholder="비밀번호" name="pw">      
             </div>
             
             <br>
@@ -57,7 +57,7 @@
                 <div class="checkbox mb-3">
                     <label>
                     <input type="checkbox" value="remember-me"> 로그인 상태 유지
-                    <a class=" btn btn-lg btn-primary" type="button" href="test_sign_in1.html">회원가입</a>
+                    <button class=" btn btn-lg btn-primary" type="button" onclick="script:window.location='join1'">회원가입</button>
                     </label>
                 </div>
                 
@@ -103,21 +103,21 @@
     
     
     <!-- Bootstrap core JavaScript-->
-    <script src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery.min.js"></script>
-    <script src="${pageContext.request.contextPath}/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="${pageContext.request.contextPath}/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="${pageContext.request.contextPath}/resources/js/sb-admin-2.min.js"></script>
+    <script src="js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="${pageContext.request.contextPath}/resources/vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="${pageContext.request.contextPath}/resources/js/demo/chart-area-demo.js"></script>
-    <script src="${pageContext.request.contextPath}/resources/js/demo/chart-pie-demo.js"></script>
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
 
 
 </body>
