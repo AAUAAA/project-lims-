@@ -57,8 +57,8 @@
 
 
     <div class="container py-2" >
-        <!-- 컨테이너 시작 건드리지마 -->	
-        
+        <!-- 컨테이너 시작 건드리지마 -->
+        	
         <div class="card">
             <div class="card-body">
                 <div class="card mb-2">
@@ -86,14 +86,14 @@
     <div class="my-3"></div>
     <!--위에여백-->
 
-    <div class="card mb-2">
+    <div class="mb-2">
         <div class="card-body">
-        제목 :  
+        <input class="form-control" type="text" placeholder="제목"> 
         </div>
     </div>
 
-        <div class="card" >
-            <div class="card-body"  style="height: 400px;">safasfasfsaf</div>            
+        <div class="" >
+            <textarea class="form-control" placeholder="내용입력" id="floatingTextarea" style="height: 400px;"></textarea>            
         </div>
             
         <div class=" my-3 ">
@@ -142,8 +142,8 @@
 
         <!--버튼-->
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button class="btn btn-secondary me-md-2" type="button">수정</button>
-            <button class="btn btn-secondary" type="button" onclick="history.go(-1)">목록</button>
+            <button class="btn btn-secondary me-md-2" type="button">저장</button>
+            <button class="btn btn-secondary" type="button" onclick="history.go(-1)">취소</button>
         </div>
         <!--버튼-->
             
