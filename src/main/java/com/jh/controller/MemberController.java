@@ -30,12 +30,14 @@ public class MemberController {
 		String email = request.getParameter("email");
 		String pw = request.getParameter("pw");
 		
+		
 		IDao dao = sqlSession.getMapper(IDao.class);
 		int checkIdFlag = dao.checkUserIdAndPw(email, pw); //mid,mpw 둘 다 있으면 1(로그인), 하나라도 없으면 0(로그인 x)
 		
 		if(checkIdFlag == 1) { //참이면 로그인 성공
 			session.setAttribute("email", email);
 		}
+				
 		
 		return "redirect:dashboard";
 	}
