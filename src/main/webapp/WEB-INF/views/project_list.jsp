@@ -28,7 +28,7 @@
 
 <body>
 <div id="wrapper">
-<!-- 사이드바 자리 -->
+	<!-- 사이드바 자리 -->
 	<%@ include file="include/sidebar.jsp" %>
 	<!-- 사이드바 자리 -->
 	
