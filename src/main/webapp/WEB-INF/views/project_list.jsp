@@ -201,12 +201,7 @@
         <td colspan="7" class="collapse" id="collapse${pdto.projectid }" >
           <div class="card card-body " role="button" onclick="script:window.location='report_list'" >
             <div class="">
-            ---연구자는 김근호 안주희.<br>
-            ---오늘은 던킨도너츠 먹고싶네요<br>
-            ---집 가기전에 사들고 갑니다.<br>
-            
-
-            부서이름도 필요합니다
+            ${pdto.project }
           </div>
           </div>
         </td>
