@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>보고서 수정</title>
+    <title>보고서 작성</title>
 
     <!-- Custom fonts for this template-->
     <link href="${pageContext.request.contextPath}/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -57,11 +57,9 @@
 
 
     <div class="container py-2" >
-        <!-- 컨테이너 시작 건드리지마 -->
-        
-        <form action="reportModifyOk" method="post">
+        <!-- 컨테이너 시작 건드리지마 -->	
+        <form action="reportModify" method="post">
         <input type="hidden" value="${rdto.rnum }" name="rnum">
-        	
         <div class="card">
             <div class="card-body">
                 <div class="card mb-2">
@@ -89,48 +87,54 @@
     <div class="my-3"></div>
     <!--위에여백-->
 
-    <div class="mb-2">
-        <div class="card-body">
-        <input class="form-control" type="text" placeholder="제목" name="title" value="${rdto.title }"> 
+    
+        <div class="row mb-2">
+        <div class="form-floating col">
+             <input type="text" class="form-control" id="floatingInput" placeholder="제목" name="title" readonly="readonly" value="${rdto.title }">
+             <label class="ml-2" for="floatingInput">제목</label>
         </div>
-    </div>
+        </div>
+        
+   
 
+        
+            
         <div class="" >
-            <textarea class="form-control" placeholder="내용입력" id="floatingTextarea" style="height: 400px;" name="contents">${rdto.contents }</textarea>            
+            <textarea class="form-control" placeholder="내용입력" id="floatingTextarea" style="height: 400px;" name="contents" readonly="readonly">${rdto.contents }</textarea>            
         </div>
+            	
             
         <div class=" my-3 ">
-        
             <div class="row mb-2">
                 <div class="form-floating col">
-                    <input type="text" class="form-control" id="floatingInput_name" placeholder="작성자" name="writer" value="${rdto.writer }">
+                    <input type="text" class="form-control" id="floatingInput_name" placeholder="기록자" name="writer" readonly="readonly" value="${rdto.writer }">
                     <label class="ml-2" for="floatingInput_name">작성자</label>
                 </div>
 
                 <div class="form-floating col">
-                    <input type="datetime" class="form-control" id="demo-mobile-picker-input" placeholder="작성일자" name="rdate" value="${rdto.rdate }">
+                    <input type="datetime" class="form-control" id="demo-mobile-picker-input" placeholder="기록일자" name="rdate" readonly="readonly" value="${rdto.rdate }">
                     <label class="ml-2" for="floatingInput_date">작성일자</label>
                 </div>
 
                 <div class="form-floating col">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="작성자 서명" name="rsign" value="${rdto.rsign }">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="기록자 서명" name="rsign" readonly="readonly" value="${rdto.rsign }">
                     <label class="ml-2" for="floatingInput">작성자 서명</label>
                 </div>
             </div>
-
+            
             <div class="row">
                 <div class="form-floating col">
-                    <input type="text" class="form-control" id="floatingInput_name" placeholder="확인자" name="leadercheck" value="${rdto.leadercheck }">
+                    <input type="text" class="form-control" id="floatingInput_name" placeholder="확인자" name="leadercheck" readonly="readonly" value="${rdto.leadercheck }">
                     <label class="ml-2" for="floatingInput_name">확인자</label>
                 </div>
 
-                <div class="form-floating col demo-usage-on-input-or-inline">
-                    <input type="datetime" class="form-control" id="floatingInput_date" placeholder="확인일자" name="cdate" value="${rdto.cdate }">
-                    <label class="ml-2" for="floatingInput_date">확인일자</label>
+                <div class="form-floating col">
+                    <input type="datetime" class="form-control" id="demo-mobile-picker-input" placeholder="확인일자" name="cdate" readonly="readonly" value="${rdto.cdate }">
+                    <label class="ml-2" for="floatingInput_date">확인 일자</label>
                 </div>
 
                 <div class="form-floating col">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="확인자 서명" name="csign" value="${rdto.csign }">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="확인자 서명" name="csign" readonly="readonly" value="${rdto.csign }">
                     <label class="ml-2" for="floatingInput">확인자 서명</label>
                 </div>
             </div>
@@ -140,11 +144,12 @@
 
         <!--버튼-->
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button class="btn btn-secondary me-md-2" type="submit">수정완료</button>
-            <button class="btn btn-secondary" type="button" onclick="history.go(-1)">취소</button>
+            <button class="btn btn-secondary me-md-2" type="submit">수정</button>
+            <button class="btn btn-secondary" type="button" onclick="script:window.location='reportDelete?rnum=${rdto.rnum}'">삭제</button>
+            <button class="btn btn-secondary" type="button" onclick="history.go(-1)">목록</button>
         </div>
         <!--버튼-->
-        </form>    
+         </form>   
             
                 
             

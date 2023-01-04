@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +29,7 @@
 
 <body>
 <div id="wrapper">
-	<!-- 사이드바 자리 -->
+<!-- 사이드바 자리 -->
 	<%@ include file="include/sidebar.jsp" %>
 	<!-- 사이드바 자리 -->
 	
@@ -65,12 +66,95 @@
           </form>     
           
           <div>
-            <button class="btn btn-secondary mr-1" type="button" onclick="script:window.location='project'">추가</button>
+            <button class="btn btn-secondary mr-1" type="button" data-bs-toggle="modal" data-bs-target="#Modal_add">추가</button>
             <button class="btn btn-secondary mr-1" type="submit">설정</button>
           </div>
           
          </div> 
         </div>
+        
+        
+        
+        
+        <form id="" action="projectOK" >
+        <!-- 모달 -->
+          <div class="modal fade " id="Modal_add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" >
+            <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable "  >
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">프로젝트 등록</h5>                
+                </div>
+                <div class="modal-body">
+                
+                  
+                  <div class=" my-3 ">
+                    <div class="row mb-2">
+                        <div class="form-floating col">
+                            <label class="ml-2" for="floatingInput_writer">과제이름</label>
+                            <input type="text" class="form-control" id="floatingInput_writer" placeholder="이름" name="project">                          
+                        </div>                   
+                    </div>
+    
+                    <div class="row mb-2">
+                        
+    
+                        <div class="form-floating col">
+                            <label class="ml-2" for="floatingInput_date">과제 시작 </label>
+                            <input type="datetime" class="form-control" id="demo-mobile-picker-input" placeholder="" name="startdate">                         
+                        </div>
+        
+                        <div class="form-floating col">
+                          <label class="ml-2" for="floatingInput_date">과제 종료 </label>
+                          <input type="datetime" class="form-control" id="demo-mobile-picker-input" placeholder="" name="finishdate">                          
+                        </div>
+                            
+                    </div>
+        
+    
+                    <div class="row mb-2">
+                        <div class="form-floating col">
+                          <label class="ml-2" for="floatingInput_name">부서명</label>
+                          <input type="text" class="form-control" id="floatingInput_name" placeholder="이름" name="team">                          
+                        </div>    
+                        
+                    </div>
+    
+                    <div class="row mb-2">
+                        <div class="form-floating col">
+                          <label class="ml-2" for="floatingInput_name">책임자</label>
+                          <input type="text" class="form-control" id="floatingInput_name" placeholder="이름" name="leader">                          
+                        </div>    
+                        
+                    </div>
+    
+                    <div class="row mb-2">
+                        <div class="form-floating col">
+                          <label class="ml-2" for="floatingInput_name">연구원</label>
+                          <input type="text" class="form-control" id="floatingInput_name" placeholder="이름" name="researcher">                          
+                        </div>
+                    </div>                  
+                  </div>
+      
+                  <div class="" >
+                      <textarea class="form-control" placeholder="관련 보고서" id="floatingTextarea" style="height: 400px;"></textarea>            
+                  </div>
+                
+      
+                </div><!--모달바디 끝-->
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                  <button class="btn btn-primary" type="submit" >저장</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--모달 끝-->
+        </form>
+        
+        
+        
+        
       
       <div class="container border rounded my-3" >
       <table class="table table-hover">
@@ -87,14 +171,16 @@
       </thead>
       <tbody>
       
+          <c:forEach items="${pdto }" var="pdto">
           
-           <tr >
-             <th scope="row">12</th>
+           <tr class="" data-bs-toggle="collapse" href="#collapse${pdto.projectid }" role="button" 
+            aria-expanded="false" aria-controls="${pdto.projectid }" >
+             <th scope="row">${pdto.projectid }</th>
              <td>진행중</td>
-             <td>과제이름은 뭐일까요</td>
-             <td>안주희</td>
-             <td>2022-12-21</td>
-             <td>2023-01-18</td>
+             <td>${pdto.project }</td>
+             <td>${pdto.leader }</td>
+             <td>${pdto.startdate }</td>
+             <td>${pdto.finishdate }</td>
              <td>
                 <div class="row no-gutters align-items-center">
                    <div class="col">
@@ -111,92 +197,10 @@
                </td>
            </tr>
            
-        
-        
-        <tr>
-          <th scope="row">1</th>
-          <td>종료</td>
-          <td>과제이름은 뭐일까요</td>
-          <td>안주희</td>
-          <td>2022-12-21</td>
-          <td>2023-01-18</td>
-          <td>
-              <div class="row no-gutters align-items-center">
-                
-                <div class="col">
-                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                </div>
-                
-                
-                <div class="col">
-                    <div class="progress progress-sm mr-2">
-                        <div class="progress-bar bg-info" role="progressbar"
-                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                            aria-valuemax="100"></div>
-                    </div>
-                </div>
-                
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">1</th>
-          <td>진행중</td>
-          <td>과제이름은 뭐일까요</td>
-          <td>안주희</td>
-          <td>2022-12-21</td>
-          <td>2023-01-18</td>
-          <td>
-          <div class="row no-gutters align-items-center">
-                
-                <div class="col">
-                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                </div>
-                
-                
-                <div class="col">
-                    <div class="progress progress-sm mr-2">
-                        <div class="progress-bar bg-info" role="progressbar"
-                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                            aria-valuemax="100"></div>
-                    </div>
-                </div>
-                
-            </div>
-            </td>
-        </tr>
-        
-        <tr class="" data-bs-toggle="collapse" href="#collapseExample" role="button" 
-            aria-expanded="false" aria-controls="collapseExample" >
-          <th scope="row">3</th>
-          <td>진행중</td>
-          <td>과제이름은 뭐일까요</td>
-          <td>안주희</td>
-          <td>2022-12-21</td>
-          <td>2023-01-18</td>
-          <td><div class="row no-gutters align-items-center">
-                
-                <div class="col">
-                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                </div>
-                
-                
-                <div class="col">
-                    <div class="progress progress-sm mr-2">
-                        <div class="progress-bar bg-info" role="progressbar"
-                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                            aria-valuemax="100"></div>
-                    </div>
-                </div>
-                
-            </div>
-            </td>
-        </tr>
-        
-        <tr>
-        <td colspan="7" class="collapse" id="collapseExample" >
+           <tr>
+        <td colspan="7" class="collapse" id="collapse${pdto.projectid }" >
           <div class="card card-body " role="button" onclick="script:window.location='report_list'" >
-            <div>
+            <div class="">
             ---연구자는 김근호 안주희.<br>
             ---오늘은 던킨도너츠 먹고싶네요<br>
             ---집 가기전에 사들고 갑니다.<br>
@@ -206,101 +210,19 @@
           </div>
           </div>
         </td>
-        </tr>   
+        </tr>  
+        </c:forEach>   
         
         
         
         
         
-        <tr class="accordion-toggle collapsed" 
-            data-mdb-toggle="collapse" data-mdb-parent="#accordion1"
-            href="#collapseOne" aria-controls="collapseOne" role="button"     >
-          <th scope="row">134</th>
-          <td>진행중</td>
-          <td>과제이름은 뭐일까요</td>
-          <td>안주희</td>
-          <td>2022-12-21</td>
-          <td>2023-01-18</td>
-          <td>그래프넣을자리</td>
-        </tr>
-        <tr class="accordion-toggle collapsed" 
-            data-mdb-toggle="collapse" data-mdb-parent="#accordion1"
-            href="#collapseOne" aria-controls="collapseOne" role="button"     >
-          <th scope="row">134</th>
-          <td>진행중</td>
-          <td>과제이름은 뭐일까요</td>
-          <td>안주희</td>
-          <td>2022-12-21</td>
-          <td>2023-01-18</td>
-          <td>그래프넣을자리</td>
-        </tr>
-        <tr class="accordion-toggle collapsed" 
-            data-mdb-toggle="collapse" data-mdb-parent="#accordion1"
-            href="#collapseOne" aria-controls="collapseOne" role="button"     >
-          <th scope="row">134</th>
-          <td>진행중</td>
-          <td>과제이름은 뭐일까요</td>
-          <td>안주희</td>
-          <td>2022-12-21</td>
-          <td>2023-01-18</td>
-          <td>그래프넣을자리</td>
-        </tr>
-        <tr class="accordion-toggle collapsed" 
-            data-mdb-toggle="collapse" data-mdb-parent="#accordion1"
-            href="#collapseOne" aria-controls="collapseOne" role="button"     >
-          <th scope="row">134</th>
-          <td>진행중</td>
-          <td>과제이름은 뭐일까요</td>
-          <td>안주희</td>
-          <td>2022-12-21</td>
-          <td>2023-01-18</td>
-          <td>그래프넣을자리</td>
-        </tr>
-        <tr class="accordion-toggle collapsed" 
-            data-mdb-toggle="collapse" data-mdb-parent="#accordion1"
-            href="#collapseOne" aria-controls="collapseOne" role="button"     >
-          <th scope="row">134</th>
-          <td>진행중</td>
-          <td>과제이름은 뭐일까요</td>
-          <td>안주희</td>
-          <td>2022-12-21</td>
-          <td>2023-01-18</td>
-          <td>그래프넣을자리</td>
-        </tr>
-        <tr class="accordion-toggle collapsed" 
-            data-mdb-toggle="collapse" data-mdb-parent="#accordion1"
-            href="#collapseOne" aria-controls="collapseOne" role="button"     >
-          <th scope="row">134</th>
-          <td>진행중</td>
-          <td>과제이름은 뭐일까요</td>
-          <td>안주희</td>
-          <td>2022-12-21</td>
-          <td>2023-01-18</td>
-          <td>그래프넣을자리</td>
-        </tr>
-        <tr class="accordion-toggle collapsed" 
-            data-mdb-toggle="collapse" data-mdb-parent="#accordion1"
-            href="#collapseOne" aria-controls="collapseOne" role="button"     >
-          <th scope="row">134</th>
-          <td>진행중</td>
-          <td>과제이름은 뭐일까요</td>
-          <td>안주희</td>
-          <td>2022-12-21</td>
-          <td>2023-01-18</td>
-          <td>그래프넣을자리</td>
-        </tr>
         
-        <tr class="accordion-toggle collapsed" 
-            data-mdb-toggle="collapse" data-mdb-parent="#accordion1"
-            href="#collapseOne" aria-controls="collapseOne" role="button"     >
-          <th scope="row">134</th>
-          <td>진행중</td>
-          <td>과제이름은 뭐일까요</td>
-          <td>안주희</td>
-          <td>2022-12-21</td>
-          <td>2023-01-18</td>
-          <td>그래프넣을자리</td>
-        </tr>
+        
+        
+        
+        
+        
         
             
         

@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>보고서 리스트</title>
+    <title>프로젝트 리스트</title>
 
     <!-- Custom fonts for this template-->
     <link href="${pageContext.request.contextPath}/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -24,7 +24,6 @@
     <link href="${pageContext.request.contextPath}/resources/css/sb-admin-2.min.css" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-
 
 </head>
 
@@ -42,14 +41,16 @@
 	<!-- topbar 자리 -->
 	
 	<div class="container ">        
-      <h1 class="">보고서</h1>
+      <h1 class="">물품목록</h1>
     </div>
+	
 
     <div class="container border rounded py-2">
         <!-- 컨테이너 시작 건드리지마 -->	
         
-            
-        <div class="row ">
+        
+
+       <div class="row ">
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 ">
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="검색"
@@ -63,62 +64,114 @@
           </form>     
           
           <div>
-            <button class="btn btn-secondary mr-1" type="button" onclick="script:window.location='report'">추가</button>
+            <button class="btn btn-secondary mr-1" type="submit">추가</button>
             <button class="btn btn-secondary mr-1" type="submit">설정</button>
           </div>
           
          </div> 
         </div>
       
-      <div class="container border rounded my-3" >
+      <div class="container-fluid border rounded my-3" >
       <table class="table table-hover">
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">제목</th>
-          <th scope="col">기록자</th>
-          <th scope="col">작성일자</th>
-          <th scope="col">확인자</th>
-          
+          <th scope="col">이름</th>
+          <th scope="col">카테고리</th>
+          <th scope="col">브랜드</th>
+          <th scope="col">제품번호</th>
+          <th scope="col" >관리번호</th>
+          <th scope="col">용량</th>
+          <th scope="col">유효기간</th>
+          <th scope="col">보관위치</th>
+          <th scope="col">수량</th>
+          <th scope="col">cas no.</th>          
         </tr>
       </thead>
       <tbody>
       
           
-         <c:forEach items="${rdto }" var="rdto">
-          
-           <tr class="" data-bs-toggle="collapse" href="#collapse${rdto.rnum}" role="button" 
-            aria-expanded="false" aria-controls="${rdto.rnum }" >
-             <th scope="row">${rdto.rnum }</th>
-             <td>${rdto.title }</td>
-             <td>${rdto.writer }</td>
-             <td>${rdto.rdate }</td>
-             <td>${rdto.leadercheck }</td>
-           </tr>
-               
-           <tr>
-        	 <td colspan="7" class="collapse" id="collapse${rdto.rnum}" >
-          		<div class="card card-body " role="button" >
-          			<a href="reportView?rnum=${rdto.rnum }" > 
-           		  	<div>
-            		두부의 물기는 최대한 없게<br>
-		            <br>
-		            그래도 던킨도나쓰가 맛있지 <br>
+           
+           
+        
+        
+        <tr>
+          <th scope="row">1</th>
+          <td>에탄올</td>
+          <td>화학물질</td>
+          <td>SIGMA</td>
+          <td>2022-12-21</td>
+          <td>2023-01-18</td>
+          <td>500ml</td>
+          <td>
+              <div class="row no-gutters align-items-center">
+                
+                <div class="col">
+                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                </div>
+                
+                
+                <div class="col">
+                    <div class="progress progress-sm mr-2">
+                        <div class="progress-bar bg-secondary" role="progressbar"
+                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                            aria-valuemax="100"></div>
+                    </div>
+                </div>
+                
+            </div>
+          </td>
+          <td>1-1 A</td>
+          <td>5</td>
+          <td>645-465</td>
+        </tr>
+        
+        
+        <tr class="" data-bs-toggle="collapse" href="#collapseExample" role="button" 
+            aria-expanded="false" aria-controls="collapseExample" >
+          <th scope="row">3</th>
+          <td>진행중</td>
+          <td>과제이름</td>
+          <td>안주희</td>
+          <td>2022-12-21</td>
+          <td>2023-01-18</td>
+          <td>500g</td>
+          <td>500g</td>
+          <td>500g</td>
+          <td>500g</td>
+          <td>500g</td>
+        </tr>
+        
+        <tr>
+        <td colspan="11" class="collapse" id="collapseExample" >
+          <div class="card card-body " role="button" onclick="location.href='test_report_list.html'" >
+            <div>
+            ---연구자는 김근호 안주희.<br>
+            ---오늘은 던킨도너츠 먹고싶네요<br>
+            ---집 가기전에 사들고 갑니다.<br>
             
 
-            		꺅 ~~
-          		  	</div>
-          		 	</a>
-          	    </div>
-        	</td>
-          </tr> 
-         </c:forEach>  
+            부서이름도 필요합니다
+          </div>
+          </div>
+        </td>
+        </tr>   
         
-     
+        
+        
+        
+        
+        
+        
+            
+        
+        
         
         
         </tbody>
       </div>    
+            
+        
                 
             
             

@@ -58,7 +58,7 @@
 
     <div class="container py-2" >
         <!-- 컨테이너 시작 건드리지마 -->	
-        
+        <form action="reportOk" method="post">
         <div class="card">
             <div class="card-body">
                 <div class="card mb-2">
@@ -86,53 +86,54 @@
     <div class="my-3"></div>
     <!--위에여백-->
 
-    <div class="card mb-2">
-        <div class="card-body">
-        제목 :  
+    
+        <div class="row mb-2">
+        <div class="form-floating col">
+             <input type="text" class="form-control" id="floatingInput" placeholder="제목" name="title">
+             <label class="ml-2" for="floatingInput">제목</label>
         </div>
-    </div>
+        </div>
+        
+   
 
-        <div class="card" >
-            <div class="card-body"  style="height: 400px;">safasfasfsaf</div>            
+        
+            
+        <div class="" >
+            <textarea class="form-control" placeholder="내용입력" id="floatingTextarea" style="height: 400px;" name="contents"></textarea>            
         </div>
+            	
             
         <div class=" my-3 ">
             <div class="row mb-2">
                 <div class="form-floating col">
-                    <input type="text" class="form-control" id="floatingInput_name" placeholder="이름" value="">
+                    <input type="text" class="form-control" id="floatingInput_name" placeholder="기록자" name="writer">
                     <label class="ml-2" for="floatingInput_name">기록자</label>
                 </div>
 
                 <div class="form-floating col">
-                    <input type="datetime" class="form-control" id="demo-mobile-picker-input" placeholder="이름">
-                    <label class="ml-2" for="floatingInput_date">기록일자
-
-                        
-
-                    </label>
+                    <input type="datetime" class="form-control" id="demo-mobile-picker-input" placeholder="기록일자" name="rdate">
+                    <label class="ml-2" for="floatingInput_date">기록일자</label>
                 </div>
 
                 <div class="form-floating col">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="이름">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="기록자 서명" name="rsign">
                     <label class="ml-2" for="floatingInput">서명</label>
                 </div>
             </div>
-
+            
             <div class="row">
                 <div class="form-floating col">
-                    <input type="text" class="form-control" id="floatingInput_name" placeholder="이름" value="">
+                    <input type="text" class="form-control" id="floatingInput_name" placeholder="확인자" name="leadercheck">
                     <label class="ml-2" for="floatingInput_name">확인자</label>
                 </div>
 
-                <div class="form-floating col demo-usage-on-input-or-inline">
-                    <input type="datetime" class="form-control" id="floatingInput_date" placeholder="이dldldldldlddl">
-                    <label class="ml-2" for="floatingInput_date">일자
-                        
-                    </label>
+                <div class="form-floating col">
+                    <input type="datetime" class="form-control" id="demo-mobile-picker-input" placeholder="확인일자" name="cdate">
+                    <label class="ml-2" for="floatingInput_date">확인일자</label>
                 </div>
 
                 <div class="form-floating col">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="이름">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="확인자 서명" name="csign">
                     <label class="ml-2" for="floatingInput">서명</label>
                 </div>
             </div>
@@ -142,11 +143,11 @@
 
         <!--버튼-->
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button class="btn btn-secondary me-md-2" type="button">수정</button>
-            <button class="btn btn-secondary" type="button" onclick="history.go(-1)">목록</button>
+            <button class="btn btn-secondary me-md-2" type="submit">완료</button>
+            <button class="btn btn-secondary" type="button" onclick="history.go(-1)">취소</button>
         </div>
         <!--버튼-->
-            
+         </form>   
             
                 
             

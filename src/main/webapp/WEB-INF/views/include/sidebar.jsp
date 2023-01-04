@@ -19,7 +19,7 @@
                     <i class="fas fa-laugh-wink"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">
-				<% if(sessionId == null) { %>
+	<% if(sessionId == null) { %>
                 김필
                 <%} else { %> 
                 <%= sessionId %>
@@ -84,7 +84,7 @@
                         <a class="collapse-item" href="forgot-password.html">생물안전관리(LMO)</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">물품관리</h6>
-                        <a class="collapse-item" href="404.html">물품목록</a>
+                        <a class="collapse-item" onclick="script:window.location='goods_list'">물품목록</a>
                     </div>
                 </div>
             </li>

@@ -67,7 +67,7 @@
             <div class=" my-3 ">
                 <div class="row mb-2">
                     <div class="form-floating col">
-                        <input type="text" class="form-control" id="floatingInput_writer" placeholder="이름" value="">
+                        <input type="text" class="form-control" id="floatingInput_writer" placeholder="이름" name="project">
                         <label class="ml-2" for="floatingInput_writer">과제이름</label>
                     </div>                   
                 </div>
@@ -76,12 +76,12 @@
                     
 
                     <div class="form-floating col">
-                        <input type="datetime" class="form-control" id="demo-mobile-picker-input" placeholder="이름">
+                        <input type="datetime" class="form-control" id="demo-mobile-picker-input" placeholder="이름" name="startdate">
                         <label class="ml-2" for="floatingInput_date">과제 시작 </label>
                     </div>
     
                     <div class="form-floating col">
-                        <input type="datetime" class="form-control" id="demo-mobile-picker-input" placeholder="이름">
+                        <input type="datetime" class="form-control" id="demo-mobile-picker-input" placeholder="이름" name="finishdate">
                         <label class="ml-2" for="floatingInput_date">과제 종료 </label>
                     </div>
                         
@@ -90,7 +90,7 @@
 
                 <div class="row mb-2">
                     <div class="form-floating col">
-                        <input type="" class="form-control" id="floatingInput_name" placeholder="이름" value="">
+                        <input type="text" class="form-control" id="floatingInput_name" placeholder="이름" name="team">
                         <label class="ml-2" for="floatingInput_name">부서명</label>
                     </div>    
                     
@@ -98,7 +98,7 @@
 
                 <div class="row mb-2">
                     <div class="form-floating col">
-                        <input type="" class="form-control" id="floatingInput_name" placeholder="이름" value="">
+                        <input type="text" class="form-control" id="floatingInput_name" placeholder="이름" name="leader">
                         <label class="ml-2" for="floatingInput_name">책임자</label>
                     </div>    
                     
@@ -106,7 +106,7 @@
 
                 <div class="row mb-2">
                     <div class="form-floating col">
-                        <input type="" class="form-control" id="floatingInput_name" placeholder="이름" value="">
+                        <input type="text" class="form-control" id="floatingInput_name" placeholder="이름" name="researcher">
                         <label class="ml-2" for="floatingInput_name">연구원</label>
                     </div>    
                     
