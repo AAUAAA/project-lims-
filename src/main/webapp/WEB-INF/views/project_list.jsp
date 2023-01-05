@@ -66,95 +66,12 @@
           </form>     
           
           <div>
-            <button class="btn btn-secondary mr-1" type="button" data-bs-toggle="modal" data-bs-target="#Modal_add">추가</button>
+            <button class="btn btn-secondary mr-1" type="button" onclick="script:window.location='project'">추가</button>
             <button class="btn btn-secondary mr-1" type="submit">설정</button>
           </div>
           
          </div> 
         </div>
-        
-        
-        
-        
-        <form id="" action="projectOK" >
-        <!-- 모달 -->
-          <div class="modal fade " id="Modal_add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" >
-            <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable "  >
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">프로젝트 등록</h5>                
-                </div>
-                <div class="modal-body">
-                
-                  
-                  <div class=" my-3 ">
-                    <div class="row mb-2">
-                        <div class="form-floating col">
-                            <label class="ml-2" for="floatingInput_writer">과제이름</label>
-                            <input type="text" class="form-control" id="floatingInput_writer" placeholder="이름" name="project">                          
-                        </div>                   
-                    </div>
-    
-                    <div class="row mb-2">
-                        
-    
-                        <div class="form-floating col">
-                            <label class="ml-2" for="floatingInput_date">과제 시작 </label>
-                            <input type="datetime" class="form-control" id="demo-mobile-picker-input" placeholder="" name="startdate">                         
-                        </div>
-        
-                        <div class="form-floating col">
-                          <label class="ml-2" for="floatingInput_date">과제 종료 </label>
-                          <input type="datetime" class="form-control" id="demo-mobile-picker-input" placeholder="" name="finishdate">                          
-                        </div>
-                            
-                    </div>
-        
-    
-                    <div class="row mb-2">
-                        <div class="form-floating col">
-                          <label class="ml-2" for="floatingInput_name">부서명</label>
-                          <input type="text" class="form-control" id="floatingInput_name" placeholder="이름" name="team">                          
-                        </div>    
-                        
-                    </div>
-    
-                    <div class="row mb-2">
-                        <div class="form-floating col">
-                          <label class="ml-2" for="floatingInput_name">책임자</label>
-                          <input type="text" class="form-control" id="floatingInput_name" placeholder="이름" name="leader">                          
-                        </div>    
-                        
-                    </div>
-    
-                    <div class="row mb-2">
-                        <div class="form-floating col">
-                          <label class="ml-2" for="floatingInput_name">연구원</label>
-                          <input type="text" class="form-control" id="floatingInput_name" placeholder="이름" name="researcher">                          
-                        </div>
-                    </div>                  
-                  </div>
-      
-                  <div class="" >
-                      <textarea class="form-control" placeholder="관련 보고서" id="floatingTextarea" style="height: 400px;"></textarea>            
-                  </div>
-                
-      
-                </div><!--모달바디 끝-->
-
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-                  <button class="btn btn-primary" type="submit" >저장</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--모달 끝-->
-        </form>
-        
-        
-        
-        
       
       <div class="container border rounded my-3" >
       <table class="table table-hover">
@@ -201,7 +118,12 @@
         <td colspan="7" class="collapse" id="collapse${pdto.projectid }" >
           <div class="card card-body " role="button" onclick="script:window.location='report_list'" >
             <div class="">
-            ${pdto.project }
+            ---연구자는 김근호 안주희.<br>
+            ---오늘은 던킨도너츠 먹고싶네요<br>
+            ---집 가기전에 사들고 갑니다.<br>
+            
+
+            부서이름도 필요합니다
           </div>
           </div>
         </td>

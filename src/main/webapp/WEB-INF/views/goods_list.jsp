@@ -24,6 +24,10 @@
     <link href="${pageContext.request.contextPath}/resources/css/sb-admin-2.min.css" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Bootstrap core JavaScript-->
+    <script src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </head>
 
@@ -64,11 +68,206 @@
           </form>     
           
           <div>
-            <button class="btn btn-secondary mr-1" type="submit">추가</button>
+            <button class="btn btn-secondary mr-1" data-bs-toggle="modal"  onclick="openModal()">추가</button>
             <button class="btn btn-secondary mr-1" type="submit">설정</button>
           </div>
           
-         </div> 
+         </div>
+         
+         
+         
+         <!-- 모달 -->
+          <div class="modal fade " id="Modal_add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" >
+              <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable "  >
+              <div class="modal-content">
+                  <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">유해물질 등록</h5>                
+                  </div>
+                  <div class="modal-body">
+                  
+                      <div class="card">
+                          <div class="card-body row">
+                              <div class="card-body ">                    
+                                  
+                              </div>
+                          
+                              <div class="card-body ">
+                                  <button type="button" class="btn btn-primary" data-bs-target="#modal_search" data-bs-toggle="modal" data-bs-dismiss="modal">검색</button>
+                              </div>
+                          </div>
+              
+                      </div>
+              
+                      <div class="card">
+              
+                          <div class="card-body row">
+              
+                              <div class="card-body">
+                                  <div class="mb-3">
+                                      <label for="hamful_add_name1" class="form-label">이름</label>
+                                      <input type="text" class="form-control inputs" id="hamful_add_name1" placeholder="이름을 입력해주세요">
+                                  </div>
+                                  <div class="mb-3">
+                                      <label for="hamful_add_category1" class="form-label">카테고리</label>
+                                      <input type="text" class="form-control inputs" id="hamful_add_category1" placeholder="카테고리를 입력해주세요">
+                                  </div>
+              
+                                  <div class="mb-3">
+                                      <label for="hamful_add_brand1" class="form-label">브랜드</label>
+                                      <input type="text" class="form-control inputs" id="hamful_add_brand1" placeholder="브랜드를 입력해주세요">
+                                  </div>
+                                  <div class="mb-3">
+                                      <label for="hamful_add_productnumber1" class="form-label">제품번호</label>
+                                      <input type="text" class="form-control inputs" id="hamful_add_productnumber1" placeholder="제품번호를 입력해주세요">
+                                  </div>
+                                  <div class="mb-3">
+                                      <label for="hamful_add_managenumber1" class="form-label">관리번호</label>
+                                      <input type="text" class="form-control inputs" id="hamful_add_managenumber1" placeholder="관리번호를 입력해주세요">
+                                  </div>
+                                  <div class="mb-3">
+                                      <label for="hamful_add_casno1" class="form-label">CAS no</label>
+                                      <input type="text" class="form-control inputs" id="hamful_add_casno1" placeholder="CAS no를 입력해주세요">
+                                  </div>
+                                  <div class="mb-3">
+                                      <label for="hamful_add_volume1" class="form-label">용량</label>
+                                      <input type="text" class="form-control inputs" id="hamful_add_volume1" placeholder="용량을 입력해주세요">
+                                  </div>
+                                  <div class="mb-3">
+                                      <label for="hamful_add_mol1" class="form-label">분자량</label>
+                                      <input type="text" class="form-control inputs" id="hamful_add_mol1" placeholder="분자량을 입력해주세요">
+                                  </div>
+                                  <div class="mb-3">
+                                      <label for="hamful_add_enddate1" class="form-label">유효기간</label>
+                                      <input type="text" class="form-control inputs" id="hamful_add_enddate1" placeholder="유효기간을 입력해주세요">
+                                  </div>
+                                  <div class="mb-3">
+                                      <label for="hamful_add_location1" class="form-label">보관위치</label>
+                                      <input type="text" class="form-control inputs" id="hamful_add_location1" placeholder="보관위치를 입력해주세요">
+                                  </div>  
+                                  <div class="mb-3">
+                                      <label for="hamful_add_quantity1" class="form-label">등록할 수량</label>
+                                      <input type="text" class="form-control inputs" id="hamful_add_quantity1" placeholder="수량을 입력해주세요">
+                                  </div>
+                              </div>
+                              <!--
+                              <div class="card-body">
+              
+                              </div>
+                              -->
+                          </div>
+                      </div>
+  
+                  </div>
+                  <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                  <button type="button" class="btn btn-primary" data-bs-target="#modal_check" data-bs-toggle="modal" data-bs-dismiss="modal">저장</button>
+                  </div>
+              </div>
+              </div>
+          </div>
+  
+          <!--저장확인 모달-->
+          <div class="modal fade" id="modal_check" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1" data-bs-backdrop="static">
+              <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable ">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalToggleLabel2">등록확인</h5>                  
+                  </div>
+                  <div class="modal-body">
+                    
+                    <div class="card">
+              
+                      <div class="card-body row">
+          
+                          <div class="card-body">
+                              <div class="mb-3 row border">
+                                  <div class="col-sm-3 ">이름</div>                                  
+                                  <div id="hamful_add_name2">asdasdas</div>                                  
+                              </div>
+                              <div class="mb-3 row border">
+                                <div class="col-sm-3 ">카테고리</div>
+                                <div id="hamful_add_category2" ></div>                                
+                              </div>
+                              <div class="mb-3 row border">
+                                <div for="hamful_add_brand2" class="col-sm-3 ">브랜드</div>
+                                <div id="hamful_add_brand2" ></div>                                
+                              </div>
+                              <div class="mb-3 row border">
+                                <div for="hamful_add_productnumber2" class="col-sm-3 ">제품번호</div>
+                                <div id="hamful_add_productnumber2" ></div>                                
+                              </div>
+                              <div class="mb-3 row border">
+                                <div for="hamful_add_managenumber2" class="col-sm-3 ">관리번호</div>
+                                <div id="hamful_add_managenumber2" ></div>                                
+                              </div>
+                              <div class="mb-3 row border">
+                                <div for="hamful_add_casno2" class="col-sm-3 ">CAS no</div>
+                                <div id="hamful_add_casno2" ></div>                                
+                              </div>                              
+                              <div class="mb-3 row border">
+                                <div for="hamful_add_volume2" class="col-sm-3 ">용량</div>
+                                <div id="hamful_add_volume2" ></div>                                
+                              </div>
+                              <div class="mb-3 row border">
+                                <div for="hamful_add_mol2" class="col-sm-3 ">분자량</div>
+                                <div id="hamful_add_mol2" ></div>                                
+                              </div>
+                              <div class="mb-3 row border">
+                                <div for="hamful_add_enddate2" class="col-sm-3 ">유효기간</div>
+                                <div id="hamful_add_enddate2" ></div>                                
+                              </div>
+                              <div class="mb-3 row border">
+                                <div for="hamful_add_location2" class="col-sm-3 ">보관위치</div>
+                                <div id="hamful_add_location2" ></div>                                
+                              </div>
+                              <div class="mb-3 row border">
+                                <div for="hamful_add_quantity2" class="col-sm-3 ">등록할 수량</div>
+                                <div id="hamful_add_quantity2" ></div>                                
+                              </div>
+                              
+                          </div>
+                          
+                      </div>
+                  </div>
+  
+                    
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-primary" data-bs-target="#Modal_add" data-bs-toggle="modal" data-bs-dismiss="modal">이전</button>
+                    <button class="btn btn-primary" data-bs-target="#ModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">저장</button>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <!--저장확인 모달-->
+  
+            <!--검색하기 모달-->
+            <div class="modal fade" id="modal_search" aria-hidden="true" aria-labelledby="exampleModalToggleLabel3" tabindex="-1" data-bs-backdrop="static">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalToggleLabel3">등록확인</h5>                  
+                  </div>
+                  <div class="modal-body">
+                  검색하기 검색하기 검색하기 rjatorgkfasfasffasf
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-primary" data-bs-target="#Modal_add" data-bs-toggle="modal" data-bs-dismiss="modal">이전</button>
+                    <button class="btn btn-primary" data-bs-target="#ModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">저장</button>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <!--검색하기 모달-->
+  
+          <!-- 모달 -->
+         
+         
+         
+         
+          
         </div>
       
       <div class="container-fluid border rounded my-3" >
@@ -193,16 +392,44 @@
 	</div>
     <!--아래여백-->
 
-</div> 
+	</div> 
+
+
+	<script>
+
+            function openModal() {
+              $(".inputs").each(function(i,e){
+                let ids = this.id;        
+                let _html = this.id.replace("1","2");
+                $(e).val("")
+                $("#"+_html).html("");
+              });
+              $('#Modal_add').modal('show');
+            }
+            
+            function printName()  {
+              $(".inputs").each(function(i,e){
+                var ids = this.id;
+                var target = ids.replace("1","2");
+                $("#"+target).html(this.value);
+                
+              });
+            }
+
+            
+          </script>
+
+        <script>
+          $(function(){
+            $(".inputs").keyup(printName);
+          });
+        </script>
+    
 
     
-
     
     
     
-    <!-- Bootstrap core JavaScript-->
-    <script src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery.min.js"></script>
-    <script src="${pageContext.request.contextPath}/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
     <script src="${pageContext.request.contextPath}/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
