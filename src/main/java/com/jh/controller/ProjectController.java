@@ -1,6 +1,7 @@
 package com.jh.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -13,10 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.jh.dao.IDao;
 import com.jh.dto.Criteria;
+import com.jh.dto.InventoryDto;
 import com.jh.dto.MemberDto;
 import com.jh.dto.PageMakerDto;
 import com.jh.dto.ProjectDto;
-import com.jh.dto.ReportDto;         
+import com.jh.dto.ReportDto;      
 
 
 @Controller
@@ -31,33 +33,27 @@ public class ProjectController {
 		return "login";
 	}
 	
-	//근호
-	
-	@RequestMapping("/goods_list")
-	public String goods_list() {
-		
-		return "goods_list";
-	}
-	
-	
-	
-	//근호
-	
-	
-	
 	@RequestMapping("/loginOk")
-	public String loginOk(HttpServletRequest request, HttpSession session) {
+	public String loginOk(HttpServletRequest request, HttpSession session, Model model) {
 		
+		String rgroup = request.getParameter("rgroup");
 		String email = request.getParameter("email");
 		String pw = request.getParameter("pw");
+		String name = request.getParameter("name");
+
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
+		MemberDto ldto = dao.loginInfo(email);
 		int checkIdFlag = dao.checkUserIdAndPw(email, pw); //mid,mpw 둘 다 있으면 1(로그인), 하나라도 없으면 0(로그인 x)
 		
 		if(checkIdFlag == 1) { //참이면 로그인 성공
 			session.setAttribute("email", email);
+			session.setAttribute("rgroup", rgroup);
+			session.setAttribute("name", name);
 		}
 		
+		
+		model.addAttribute("ldto", ldto);
 		return "redirect:dashboard";
 	}
 	
@@ -89,12 +85,6 @@ public class ProjectController {
 	@RequestMapping("/joinOk2")
 	public String joinOk2(HttpServletRequest request) {
 		
-		String rname = request.getParameter("rname");
-		
-		IDao dao = sqlSession.getMapper(IDao.class);
-		
-		dao.ResearchJoin(rname);
-		
 		return "redirect:join3";
 	}
 	
@@ -121,7 +111,10 @@ public class ProjectController {
 		IDao dao = sqlSession.getMapper(IDao.class);
 		
 		ArrayList<ProjectDto> pdto =  dao.projectlist();
+		int pCount = dao.projectAllCount();
+		
 		model.addAttribute("pdto", pdto);
+		model.addAttribute("pCount",pCount);
 		
 		return "project_list";
 	}
@@ -147,6 +140,30 @@ public class ProjectController {
 		dao.writeProject(project, startdate, finishdate, team, leader, researcher);
 		
 		return "redirect:project_list";
+	}
+	
+	@RequestMapping("/projectSearch")
+	public String projectSearch(HttpServletRequest request, Model model) {
+		
+		String searchOption = request.getParameter("searchOption");
+		//title, content, writer 3개중에 한개의 값을 저장
+		String searchKey = request.getParameter("searchKey");
+		//유저가 입력한 제목/내용/글쓴이 에 포함된 검색 키워드 낱말
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		ArrayList<ProjectDto> pdto = null;
+		
+		if(searchOption.equals("title")) {
+			pdto = dao.pSearchTitle(searchKey);			
+		} else if(searchOption.equals("contents")) {
+			pdto = dao.pSearchLeader(searchKey);
+		}	
+		
+		
+		model.addAttribute("pdto", pdto);
+		model.addAttribute("pCount", pdto.size());//검색 결과 게시물의 개수 반환
+		
+		return "project_list";
 	}
 	
 	@RequestMapping("report")
@@ -272,5 +289,83 @@ public class ProjectController {
 		model.addAttribute("rCount", rdto.size());//검색 결과 게시물의 개수 반환
 		
 		return "report_list";
+	}
+	
+	@RequestMapping("/goods_list")
+	public String goods_list(HttpServletRequest request) {
+		
+		String inum = request.getParameter("inum");
+		String iname = request.getParameter("iname");
+		String category = request.getParameter("category");
+		String brand = request.getParameter("brand");
+		String pronum = request.getParameter("pronum");
+		String mananum = request.getParameter("mananum");
+		String casNo = request.getParameter("casNo");
+		String volume = request.getParameter("volume");
+		String molecular = request.getParameter("molecular");
+		String exdate = request.getParameter("exdate");
+		String location = request.getParameter("location");
+		String stock = request.getParameter("stock");
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		dao.writeInventory(iname, category, brand, pronum, mananum, casNo, volume, molecular, exdate, location, stock);
+		
+		return "goods_list";
+	}
+	
+	@RequestMapping("inventoryOk")
+	public String inventoryOk(HttpServletRequest request) {
+		
+		String iname = request.getParameter("iname");
+		String category = request.getParameter("category");
+		String brand = request.getParameter("brand");
+		String pronum = request.getParameter("pronum");
+		String mananum = request.getParameter("mananum");
+		String casNo = request.getParameter("casNo");
+		String volume = request.getParameter("volume");
+		String molecular = request.getParameter("molecular");
+		String exdate = request.getParameter("exdate");
+		String location = request.getParameter("location");
+		String stock = request.getParameter("stock");
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		dao.writeInventory(iname, category, brand, pronum, mananum, casNo, volume, molecular, exdate, location, stock);
+		
+		return "redirect:goods_list";
+	}
+	
+	@RequestMapping("/inventorySearch")
+	public String inventorySearch(HttpServletRequest request, Model model) {
+		
+		String searchOption = request.getParameter("searchOption");
+		//title, content, writer 3개중에 한개의 값을 저장
+		String searchKey = request.getParameter("searchKey");
+		//유저가 입력한 제목/내용/글쓴이 에 포함된 검색 키워드 낱말
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		ArrayList<InventoryDto> idto = null;
+		
+		if(searchOption.equals("name")) {
+			idto = dao.iSearchName(searchKey);			
+		} else if(searchOption.equals("category")) {
+			idto = dao.iSearchCategory(searchKey);
+		} else if(searchOption.equals("brand")) {
+			idto = dao.iSearchBrand(searchKey);
+		} else if(searchOption.equals("casNo")) {
+			idto = dao.iSearchCasNo(searchKey);
+		} else if(searchOption.equals("pronum")) {
+			idto = dao.iSearchProNum(searchKey);
+		} else if(searchOption.equals("mananum")) {
+			idto = dao.iSearchMananum(searchKey);
+		} else if(searchOption.equals("location")) {
+			idto = dao.iSearchLocation(searchKey);
+		} 		
+		
+		
+		model.addAttribute("idto", idto);
+		
+		return "goods_list";
 	}
 }

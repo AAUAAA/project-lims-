@@ -17,6 +17,10 @@
 	<select id="checkUserIdAndPw" resultType="int">
 		select count(*) from join where email=#{param1} and pw=#{param2}
 	</select>
+	
+	<select id="loginInfo" resultType="com.jh.dto.MemberDto">
+		select * from join where email=#{param1}
+	</select>
 
 
 <!-- 연구노트(프로젝트) -->
@@ -26,6 +30,10 @@
 	
 	<select id="projectlist" resultType="com.jh.dto.ProjectDto">
 		select * from project order by projectid desc
+	</select>
+	
+	<select id="projectAllCount" resultType="int">
+ 		select count(*) from project
 	</select>
 	
 	
@@ -70,16 +78,52 @@
 	
 
 <!-- 프로젝트  게시판 검색 SQL -->
-	<select id="pSearchTitle" resultType="com.jh.dto.ReportDto">
-		SELECT * FROM report WHERE project LIKE '%' || #{param1} || '%' ORDER BY projectid DESC
+	<select id="pSearchTitle" resultType="com.jh.dto.ProjectDto">
+		SELECT * FROM project WHERE project LIKE '%' || #{param1} || '%' ORDER BY projectid DESC
 	</select>
 	
-	<select id="pSearchContents" resultType="com.jh.dto.ReportDto">
-		select * from report where contents like '%' || #{param1} || '%' order by projectid desc
+	<select id="pSearchLeader" resultType="com.jh.dto.ProjectDto">
+		select * from project where leader like '%' || #{param1} || '%' order by projectid desc
 	</select>
 	
-	<select id="pSearchWriter" resultType="com.jh.dto.ReportDto">
-		select * from report where writer like '%' || #{param1} || '%' order by projectid desc
+<!-- 물품 검색 SQL -->
+	<select id="iSearchName" resultType="com.jh.dto.ProjectDto">
+		SELECT * FROM inventory WHERE iname LIKE '%' || #{param1} || '%' ORDER BY inum DESC
 	</select>
+	
+	<select id="iSearchCategory" resultType="com.jh.dto.ProjectDto">
+		select * from inventory where category like '%' || #{param1} || '%' order by inum desc
+	</select>
+	
+	<select id="iSearchBrand" resultType="com.jh.dto.ProjectDto">
+		SELECT * FROM inventory WHERE brand LIKE '%' || #{param1} || '%' ORDER BY inum DESC
+	</select>
+	
+	<select id="iSearchCasNo" resultType="com.jh.dto.ProjectDto">
+		select * from inventory where casNo like '%' || #{param1} || '%' order by inum desc
+	</select>
+	
+	<select id="iSearchProNum" resultType="com.jh.dto.ProjectDto">
+		SELECT * FROM inventory WHERE pronum LIKE '%' || #{param1} || '%' ORDER BY inum DESC
+	</select>
+	
+	<select id="iSearchMananum" resultType="com.jh.dto.ProjectDto">
+		select * from inventory where mananum like '%' || #{param1} || '%' order by inum desc
+	</select>
+	
+	<select id="iSearchLocation" resultType="com.jh.dto.ProjectDto">
+		select * from inventory where location like '%' || #{param1} || '%' order by inum desc
+	</select>
+	
+<!-- 물품 목록 -->
+	<insert id="writeInventory">
+		INSERT INTO inventory(inum, iname, category, brand, pronum, mananum, casNo, volume, molecular, exdate, location, stock) VALUES (inventory_seq.nextval,#{param1,jdbcType=VARCHAR},#{param2,jdbcType=VARCHAR},#{param3,jdbcType=VARCHAR},#{param4,jdbcType=VARCHAR},#{param5,jdbcType=VARCHAR},#{param6,jdbcType=VARCHAR},#{param7,jdbcType=VARCHAR},#{param8,jdbcType=VARCHAR}, #{param9,jdbcType=VARCHAR}, #{param10,jdbcType=VARCHAR}, #{param11,jdbcType=VARCHAR})
+	</insert>
+	
+	<select id="inventorylist" resultType="com.jh.dto.InventoryDto">
+      select * from inventory order by inum desc 
+   	</select>
+	
+
 
 </mapper>

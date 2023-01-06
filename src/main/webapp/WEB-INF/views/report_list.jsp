@@ -48,8 +48,7 @@
     <div class="container border rounded py-2">
         <!-- 컨테이너 시작 건드리지마 -->	
         
-        
-       
+            
         <div class="row">
         <div class="col" id="total">▷ 총 ${rCount }개의 게시물이 있습니다.</div>
         </div>
@@ -90,13 +89,6 @@
           </div>
           
          </div>
-         
-         
-         
-         
-         
-         
-         
       
       <div class="container border rounded my-3" >
       <table class="table table-hover">

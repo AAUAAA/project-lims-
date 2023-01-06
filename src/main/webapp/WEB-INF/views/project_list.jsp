@@ -48,30 +48,43 @@
     <div class="container border rounded py-2">
         <!-- 컨테이너 시작 건드리지마 -->	
         
-        
-
-        
-            
+           
         <div class="row ">
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 ">
-            <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="검색"
-                         aria-label="Search" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-secondary" type="button">
-                  <i class="fas fa-search fa-sm"></i>
-                </button>
-              </div>
+          <form action="projectSearch" class="col">
+           
+            <div id="total_search">
+            
+         	<div id="search" >
+            	
+              	<select id="search_select" name="searchOption">
+			            <option value="title">과제명</option>
+			            <option value="contents">책임자</option>
+			            
+             		</select>
+           		
+           		<div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 " >
+           		<div class="input-group">
+           		<input type="text" class="form-control bg-light border-0 small" placeholder="검색"
+                       aria-label="Search" aria-describedby="basic-addon2" name="searchKey">
+                <div class="input-group-append">
+                     <button class="btn btn-secondary" type="submit" >
+                     <i class="fas fa-search fa-sm"></i>
+                     </button>
+               </div>
+               </div>
+           </div>
+        	</div>
             </div>
           </form>     
           
-          <div>
+          <div class="col">
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <button class="btn btn-secondary mr-1" type="button" onclick="script:window.location='project'">추가</button>
             <button class="btn btn-secondary mr-1" type="submit">설정</button>
           </div>
+          </div>
           
-         </div> 
-        </div>
+         </div>
       
       <div class="container border rounded my-3" >
       <table class="table table-hover">

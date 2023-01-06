@@ -54,22 +54,46 @@
         
         
 
-       <div class="row ">
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 ">
-            <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="검색"
-                         aria-label="Search" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-secondary" type="button">
-                  <i class="fas fa-search fa-sm"></i>
-                </button>
-              </div>
+       <div class="row"></div>
+        
+        <div class="row ">
+          <form action="inventorySearch" class="col">
+           
+            <div id="total_search">
+            
+         	<div id="search" >
+            	
+              	<select id="search_select" name="searchOption">
+			            <option value="name">제품명</option>
+			            <option value="category">카테고리</option>
+			            <option value="brand">브랜드</option>
+			            <option value="casNo">카스번호</option>
+			            <option value="pronum">제품번호</option>
+			            <option value="mananum">관리번호</option>
+			            <option value="location">보관위치</option>
+			            
+             		</select>
+           		
+           		<div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 " >
+           		<div class="input-group">
+           		<input type="text" class="form-control bg-light border-0 small" placeholder="검색"
+                       aria-label="Search" aria-describedby="basic-addon2" name="searchKey">
+                <div class="input-group-append">
+                     <button class="btn btn-secondary" type="submit" >
+                     <i class="fas fa-search fa-sm"></i>
+                     </button>
+               </div>
+               </div>
+           </div>
+        	</div>
             </div>
           </form>     
           
-          <div>
+          <div class="col">
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <button class="btn btn-secondary mr-1" data-bs-toggle="modal"  onclick="openModal()">추가</button>
             <button class="btn btn-secondary mr-1" type="submit">설정</button>
+          </div>
           </div>
           
          </div>
@@ -77,6 +101,7 @@
          
          
          <!-- 모달 -->
+         <form action="inventoryOk">
           <div class="modal fade " id="Modal_add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" >
               <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable "  >
               <div class="modal-content">
@@ -105,48 +130,48 @@
                               <div class="card-body">
                                   <div class="mb-3">
                                       <label for="hamful_add_name1" class="form-label">이름</label>
-                                      <input type="text" class="form-control inputs" id="hamful_add_name1" placeholder="이름을 입력해주세요">
+                                      <input type="text" class="form-control inputs" id="hamful_add_name1" placeholder="이름을 입력해주세요" name="iname">
                                   </div>
                                   <div class="mb-3">
                                       <label for="hamful_add_category1" class="form-label">카테고리</label>
-                                      <input type="text" class="form-control inputs" id="hamful_add_category1" placeholder="카테고리를 입력해주세요">
+                                      <input type="text" class="form-control inputs" id="hamful_add_category1" placeholder="카테고리를 입력해주세요" name="category">
                                   </div>
               
                                   <div class="mb-3">
                                       <label for="hamful_add_brand1" class="form-label">브랜드</label>
-                                      <input type="text" class="form-control inputs" id="hamful_add_brand1" placeholder="브랜드를 입력해주세요">
+                                      <input type="text" class="form-control inputs" id="hamful_add_brand1" placeholder="브랜드를 입력해주세요" name="brand">
                                   </div>
                                   <div class="mb-3">
                                       <label for="hamful_add_productnumber1" class="form-label">제품번호</label>
-                                      <input type="text" class="form-control inputs" id="hamful_add_productnumber1" placeholder="제품번호를 입력해주세요">
+                                      <input type="text" class="form-control inputs" id="hamful_add_productnumber1" placeholder="제품번호를 입력해주세요" name="pronum">
                                   </div>
                                   <div class="mb-3">
                                       <label for="hamful_add_managenumber1" class="form-label">관리번호</label>
-                                      <input type="text" class="form-control inputs" id="hamful_add_managenumber1" placeholder="관리번호를 입력해주세요">
+                                      <input type="text" class="form-control inputs" id="hamful_add_managenumber1" placeholder="관리번호를 입력해주세요" name="mananum">
                                   </div>
                                   <div class="mb-3">
                                       <label for="hamful_add_casno1" class="form-label">CAS no</label>
-                                      <input type="text" class="form-control inputs" id="hamful_add_casno1" placeholder="CAS no를 입력해주세요">
+                                      <input type="text" class="form-control inputs" id="hamful_add_casno1" placeholder="CAS no를 입력해주세요" name="casNo">
                                   </div>
                                   <div class="mb-3">
                                       <label for="hamful_add_volume1" class="form-label">용량</label>
-                                      <input type="text" class="form-control inputs" id="hamful_add_volume1" placeholder="용량을 입력해주세요">
+                                      <input type="text" class="form-control inputs" id="hamful_add_volume1" placeholder="용량을 입력해주세요" name="volume">
                                   </div>
                                   <div class="mb-3">
                                       <label for="hamful_add_mol1" class="form-label">분자량</label>
-                                      <input type="text" class="form-control inputs" id="hamful_add_mol1" placeholder="분자량을 입력해주세요">
+                                      <input type="text" class="form-control inputs" id="hamful_add_mol1" placeholder="분자량을 입력해주세요" name="molecular">
                                   </div>
                                   <div class="mb-3">
                                       <label for="hamful_add_enddate1" class="form-label">유효기간</label>
-                                      <input type="text" class="form-control inputs" id="hamful_add_enddate1" placeholder="유효기간을 입력해주세요">
+                                      <input type="text" class="form-control inputs" id="hamful_add_enddate1" placeholder="유효기간을 입력해주세요" name="exdate">
                                   </div>
                                   <div class="mb-3">
                                       <label for="hamful_add_location1" class="form-label">보관위치</label>
-                                      <input type="text" class="form-control inputs" id="hamful_add_location1" placeholder="보관위치를 입력해주세요">
+                                      <input type="text" class="form-control inputs" id="hamful_add_location1" placeholder="보관위치를 입력해주세요" name="location">
                                   </div>  
                                   <div class="mb-3">
                                       <label for="hamful_add_quantity1" class="form-label">등록할 수량</label>
-                                      <input type="text" class="form-control inputs" id="hamful_add_quantity1" placeholder="수량을 입력해주세요">
+                                      <input type="text" class="form-control inputs" id="hamful_add_quantity1" placeholder="수량을 입력해주세요" name="stock">
                                   </div>
                               </div>
                               <!--
@@ -165,8 +190,10 @@
               </div>
               </div>
           </div>
+          
   
           <!--저장확인 모달-->
+          
           <div class="modal fade" id="modal_check" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1" data-bs-backdrop="static">
               <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable ">
                 <div class="modal-content">
@@ -182,7 +209,7 @@
                           <div class="card-body">
                               <div class="mb-3 row border">
                                   <div class="col-sm-3 ">이름</div>                                  
-                                  <div id="hamful_add_name2">asdasdas</div>                                  
+                                  <div id="hamful_add_name2"></div>                                  
                               </div>
                               <div class="mb-3 row border">
                                 <div class="col-sm-3 ">카테고리</div>
@@ -201,8 +228,8 @@
                                 <div id="hamful_add_managenumber2" ></div>                                
                               </div>
                               <div class="mb-3 row border">
-                                <div for="hamful_add_casno2" class="col-sm-3 ">CAS no</div>
-                                <div id="hamful_add_casno2" ></div>                                
+                                <div for="hamful_add_casno2" class="col-sm-3 " >CAS no</div>
+                                <div id="hamful_add_casno2"  id="text"></div>                                
                               </div>                              
                               <div class="mb-3 row border">
                                 <div for="hamful_add_volume2" class="col-sm-3 ">용량</div>
@@ -233,13 +260,14 @@
                     
                   </div>
                   <div class="modal-footer">
-                    <button class="btn btn-primary" data-bs-target="#Modal_add" data-bs-toggle="modal" data-bs-dismiss="modal">이전</button>
-                    <button class="btn btn-primary" data-bs-target="#ModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">저장</button>
+                    <button class="btn btn-primary" data-bs-target="#Modal_add" data-bs-toggle="modal" data-bs-dismiss="modal" type="button">이전</button>
+                    <button class="btn btn-primary" data-bs-target="#ModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal" type="submit">저장</button>
                   </div>
                   
                 </div>
               </div>
             </div>
+            </form>
             <!--저장확인 모달-->
   
             <!--검색하기 모달-->
@@ -288,86 +316,42 @@
         </tr>
       </thead>
       <tbody>
-      
-          
-           
-           
+      	<c:forEach items="${idto }" var="idto">
         
-        
-        <tr>
-          <th scope="row">1</th>
-          <td>에탄올</td>
-          <td>화학물질</td>
-          <td>SIGMA</td>
-          <td>2022-12-21</td>
-          <td>2023-01-18</td>
-          <td>500ml</td>
-          <td>
-              <div class="row no-gutters align-items-center">
-                
-                <div class="col">
-                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                </div>
-                
-                
-                <div class="col">
-                    <div class="progress progress-sm mr-2">
-                        <div class="progress-bar bg-secondary" role="progressbar"
-                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                            aria-valuemax="100"></div>
-                    </div>
-                </div>
-                
-            </div>
-          </td>
-          <td>1-1 A</td>
-          <td>5</td>
-          <td>645-465</td>
-        </tr>
-        
-        
-        <tr class="" data-bs-toggle="collapse" href="#collapseExample" role="button" 
-            aria-expanded="false" aria-controls="collapseExample" >
-          <th scope="row">3</th>
-          <td>진행중</td>
-          <td>과제이름</td>
-          <td>안주희</td>
-          <td>2022-12-21</td>
-          <td>2023-01-18</td>
-          <td>500g</td>
-          <td>500g</td>
-          <td>500g</td>
-          <td>500g</td>
-          <td>500g</td>
-        </tr>
-        
-        <tr>
-        <td colspan="11" class="collapse" id="collapseExample" >
-          <div class="card card-body " role="button" onclick="location.href='test_report_list.html'" >
-            <div>
-            ---연구자는 김근호 안주희.<br>
-            ---오늘은 던킨도너츠 먹고싶네요<br>
-            ---집 가기전에 사들고 갑니다.<br>
-            
-
-            부서이름도 필요합니다
-          </div>
-          </div>
-        </td>
-        </tr>   
-        
-        
-        
-        
-        
-        
-        
-            
-        
-        
-        
-        
+	        <tr class="" data-bs-toggle="collapse" href="#collapse${idto.inum}" role="button" 
+	            aria-expanded="false" aria-controls="${idto.inum}" >
+	          <th scope="row">${idto.inum}</th>
+	          <td>진행중</td>
+	          <td>${idto.category}</td>
+	          <td>${idto.brand}</td>
+	          <td>${idto.pronum}</td>
+	          <td>${idto.mananum}</td>
+	          <td>${idto.volume}</td>
+	          <td>${idto.exdate}</td>
+	          <td>${idto.location}</td>
+	          <td>${idto.stock}</td>
+	          <td>${idto.casNo}</td>
+	        </tr>
+	        
+	        <tr>
+	        <td colspan="11" class="collapse" id="collapse${idto.inum}" >
+	          <div class="card card-body " role="button">
+	            <a href="inventoryView?inum=${idto.inum }" >
+	            <div>
+	            ---연구자는 김근호 안주희.<br>
+	            ---오늘은 던킨도너츠 먹고싶네요<br>
+	            ---집 가기전에 사들고 갑니다.<br>
+	            
+	
+	            부서이름도 필요합니다
+	            </div>
+	          </a>
+	          </div>
+	        </td>
+	        </tr> 
+        </c:forEach>  
         </tbody>
+        </table>
       </div>    
             
         
@@ -424,6 +408,8 @@
             $(".inputs").keyup(printName);
           });
         </script>
+        
+        
     
 
     
